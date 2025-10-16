@@ -85,11 +85,9 @@ class BaseTask:
         """
         if (self.corpus is None) or (self.queries is None):
             dataset_path = self.metadata_dict["dataset"]["path"]
-            subset = self.metadata_dict["dataset"]["subset"]
 
             corpus, queries = HFDataLoader(
                 hf_repo=dataset_path,
-                subset=subset,
                 keep_in_memory=False,
             ).load()
 
